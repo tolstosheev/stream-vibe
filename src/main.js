@@ -1,1 +1,3 @@
-console.log('Hello, Movies & Shows');
+import OverlayMenu from '@/modules/OverlayMenu';
+
+new OverlayMenu();
