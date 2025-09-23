@@ -1,6 +1,6 @@
 @use 'functions' as *;
 
-@mixin fluid-text($max: 48, $min: 16){
+@mixin fluid-text($max: 48, $min: 16) {
   font-size: fluid($max, $min);
 }
 
@@ -15,10 +15,9 @@
 }
 
 @mixin flex-center($isInline: false) {
-  @if ($isInline){
+  @if ($isInline) {
     display: inline-flex;
-  }
-  @else {
+  } @else {
     display: flex;
   }
 
@@ -50,7 +49,7 @@
   translate: 0 -50%;
 }
 
-@mixin square($size){
+@mixin square($size) {
   width: $size;
   height: $size;
 }

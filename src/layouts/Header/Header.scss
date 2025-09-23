@@ -1,7 +1,7 @@
-.header{
+.header {
   position: sticky;
-  top: 0;
   z-index: 100;
+  top: 0;
   width: 100%;
   padding-block: fluid(22, 14);
   border-bottom: var(--border-width-s) solid transparent;
@@ -10,30 +10,34 @@
   animation-timeline: scroll();
   animation-range: 0 100px;
 
-
-
   @keyframes scrolling-header {
-    to{
+    to {
       padding-block: 10px;
       background-color: var(--color-black-08);
       border-color: var(--color-black-15);
     }
   }
 
-  &__overlay-menu-dialog{
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 16px;
+  }
+
+  &__overlay-menu-dialog {
     position: fixed;
     inset: 0;
+    flex-direction: column-reverse;
+    justify-content: start;
+    row-gap: 16px;
     width: 100%;
     height: 100%;
+    padding: var(--container-padding-x);
     background-color: var(--color-black-20);
     border: none;
-    padding: var(--container-padding-x);
-    row-gap: 16px;
-    justify-content: start;
-    flex-direction: column-reverse;
     transition-duration: var(--transition-duration);
     transition-behavior: allow-discrete;
-
 
     @include tablet-above {
       display: contents;
@@ -44,7 +48,7 @@
       translate: 50%;
     }
 
-    &[open]{
+    &[open] {
       display: flex;
 
       @starting-style {
@@ -52,21 +56,13 @@
       }
     }
 
-    &:not([open]){
+    &:not([open]) {
       @include starting-styles;
     }
   }
 
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 16px;
-  }
-
   &__menu {
-    background-color: var(--color-black-06);
-
+    border-radius: var(--border-radius-l);
 
     @include laptop {
       border-radius: var(--border-radius-m);
@@ -74,8 +70,8 @@
 
     @include tablet-above {
       padding: fluid-to-laptop(10, 8);
+      background-color: var(--color-black-06);
       outline: var(--border-width-l) solid var(--color-black-12);
-      border-radius: var(--border-radius-l);
     }
 
     @include tablet {
@@ -83,7 +79,7 @@
       justify-content: center;
       height: 100%;
       border-radius: 0;
-      background-color: transparent;
+      overflow-y: auto;
     }
 
     &-list {
